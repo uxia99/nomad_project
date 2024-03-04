@@ -1,0 +1,8 @@
+{
+  "json.schemas": [
+    // 여기에 스키마 설정이 들어갈 수 있습니다.
+  ],
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.ChromeDebuggingAttachment": true,
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "/Applications/Arc.app/Contents/MacOS/Arc --incognito"
+}
