@@ -152,4 +152,74 @@ partTimeJob.introduce("스타벅스"); // 어서오세요, 스타벅스입니다
 
 
 
+console.log("- - - - - - -");
 
+
+
+
+// Returns
+
+const age = 24;
+function calculateKrAge(ageOfForeigner) {
+  return ageOfForeigner + 2;
+}
+
+const krAge = calculateKrAge(age);
+
+console.log(krAge); // 26
+
+
+
+
+const calculator = {
+  plus : function(a, b) {
+    return a + b;
+  },
+  minus : function(a, b) {
+    return a - b;
+  },
+  times : function(a, b) {
+    return a * b;
+  },
+  divide : function(a, b) {
+    return a / b;
+  },
+  power : function(a, b) {
+    return a ** b;
+  },
+};
+
+const plusResult = calculator.plus(5, 2);
+console.log(plusResult); // 7
+
+const minusResult = calculator.minus(2024, 1999);
+console.log(minusResult); // 25
+
+const timesResult = calculator.times(38000, 18);
+console.log(timesResult); // 684000
+
+const divideResult = calculator.divide(668000, 38000);
+console.log(divideResult); // 17.526315789473685
+
+const powerResult = calculator.power(2, 10);
+console.log(powerResult); // 1024
+
+
+
+plusResult = calculator.plus(5, 2); // 7
+minusResult = calculator.minus(plusResult, 3); // 4
+timesResult = calculator.times(10, minusResult); // 40
+divideResult = calculator.divide(timesResult, plusResult); // 5.714285714285714
+poswerResult = calculator.power(divideResult, minusResult); // 104976.00000000001
+
+
+
+
+
+console.log("- - - - - - -");
+
+
+
+
+
+// Conditionals 조건문
