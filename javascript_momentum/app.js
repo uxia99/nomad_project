@@ -273,18 +273,56 @@
 
 
 
-// JavaScript on the Browser
+// // JavaScript on the Browser
 
 // HTML in JavaScript
 // const title = document.getElementById("title");
 // console.log(title); // console.dir(title)로도 확인 가능 - element의 모든 정보를 볼 수 있음
 
 
-// Js에서 HTML 변경
+// // Js에서 HTML 변경
 // document.title = "JavaScript can change HTML";
 
-const title = document.getElementById("title");
-title.innerText = "Got you!";
+// const title = document.getElementById("title");
+// title.innerText = "Got you!";
 
-console.log(title.id);
-console.log(title.className);
+// console.log(title.id);
+// console.log(title.className);
+
+
+// const hellos = document.getElementsByClassName("Hello, I'm ClassName");
+// console.log(hellos);
+
+// const title = document.getElementsByTagName("h1"); // Tag는 anchor, div, section, button 등을 의미
+// console.log(title);
+
+// // QuerySelector는 element를 CSS 방식으로 검색할 수 있음
+// const title = document.querySelector(".className h1");
+// console.log(title);
+
+// title.style.color = "Brown";
+
+
+// Events and event handlers
+const title = document.querySelector("div.className h1");
+
+// console.dir(title); // 여기서 event를 찾아서 사용할 수 있음
+
+function handleTitleClick() {
+  title.style.color = "red";
+}
+
+function hadleMouseEnter() {
+  console.log("Mouse is here");
+}
+
+function handleMouseLeave() {
+  console.log("Mouse is gone");
+}
+
+title.addEventListener("click", handleTitleClick);
+// title.onclick = handleTitleClick // 이렇게 할 수도 있음
+title.addEventListener("mouseenter", hadleMouseEnter);
+// title.onmouseenter = handleMouseEnter; // 이렇게 할 수도 있음
+title.addEventListener("mouseleave", handleMouseLeave);
+// title.onmouseleave = handleMouseLeave; // 이렇게 할 수도 있음
