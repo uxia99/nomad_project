@@ -5,9 +5,9 @@ const loginInput = document.querySelector("#login-form input");
 // querySelector을 사용할 때는 ID를 명시하도록 #을 붙여줘야 함
 // getElementById는 명확히 Id를 찾기때문에 명시할 필요 없음
 
-function onLoginSubmit() {
-  const username = loginInput.value;
-  console.log(username);
+function onLoginSubmit(potato) {
+  potato.preventDefault();
+  console.log(potato);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
