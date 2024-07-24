@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // 해당 Metadata 부분이 페이지의 Head 부분에 표시됨
 export const metadata = {
   title: 'Home',
@@ -16,7 +18,10 @@ export default async function HomePage() {
   const movies = await getMovies();
   return (
     <div>
-      {JSON.stringify(movies)}
+      {movies.map(movie => 
+      <li key = {movie.id}>
+        <Link href = {'/movies/${movie.id}'}>{movie.title}</Link>
+      </li>)}
     </div>
   );
 }
