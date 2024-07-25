@@ -2,21 +2,24 @@
 
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 // querySelector을 사용할 때는 ID를 명시하도록 #을 붙여줘야 함
 // getElementById는 명확히 Id를 찾기때문에 명시할 필요 없음
 
-const link = document.querySelector("a");
+// 일반적으로 string만 포함된 변수는 대문자로 표기하고 string을 저장하고싶을 때 사용  
+// 혹은 loginForm, loginInput처럼 중요한 정보를 담은 게 아닐 경우 사용
+const HIDDEN_CLASSNAME = "hidden";
 
 function onLoginSubmit(event) {
-  potato.preventDefault(); // form 태그의 기본 동작을 막음
-  console.log(loginInput.value);
-}
+  event
+  .preventDefault(); // form 태그의 기본 동작을 막음
+  loginForm.classList.add("hidden");
+  const username = loginInput.value;
+  console.log(username); 
 
-function handleLinkClick(event) {
-  event.preventDefault(); // a 태그의 기본 동작을 막음  
-  console.log(event);
-  alert("clicked!");
-}
+  // greeting.innerText = "Hello, " + username; // 이렇게도 가능
+  greeting.innerText = `Hello, ${username}`;
+  greeting.classList.remove("hidden");
+} 
 
 loginForm.addEventListener("submit", onLoginSubmit);
-link.addEventListener("click", handleLinkClick);
