@@ -19,19 +19,21 @@ function onLoginSubmit(event) {
   
   localStorage.setItem(USERNAME_KEY, username); // 좌 : key, 우 : value
 
-  // greeting.innerText = "Hello, " + username; // 이렇게도 가능
-  greeting.innerText = `Hello, ${username}`;
-  greeting.classList.remove(HIDDEN_CLASSNAME);
+  paintGreetings(username);
 } 
 
 
-const savedUsername = localStorage.getItem(USERNAME_KEY); 
-console.log(savedUsername);
+function paintGreetings(username) {
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+  greeting.innerText = `Hello, ${username}`;
+}
+
+
+const savedUsername = localStorage.getItem(USERNAME_KEY); // key를 통해 value를 가져옴
 
 if(savedUsername === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
-  greeting.classList.remove(HIDDEN_CLASSNAME);
-  greeting.innerText = `Hello, ${savedUsername}`;
+  paintGreetings(savedUsername);
 }
