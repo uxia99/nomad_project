@@ -3,7 +3,9 @@ const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
 function deleteToDo(event) { // event를 받아서 해당 li에 대해서 delete를 실행
-  console.log(event.target.parentElement.innerText); // event.target은 button을 의미
+  const list = event.target.parentElement; // event.target은 button을 의미
+  // console.log(event.target.parentElement.innerText); 
+  list.remove();
 }
 
 function paintToDo(newToDo) {
