@@ -16,12 +16,16 @@ function deleteToDo(event) {
   const list = event.target.parentElement; // event.target은 button을 의미
   // console.log(event.target.parentElement.innerText);
   list.remove();
+   
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(list.id)); // toDos배열에서 id가 list.id인 것을 제외한 것만 남김
+  saveToDos();
 }
 
-function paintToDo(newToDo) {
+function paintToDo(newToDo) { 
   const list = document.createElement("li");
+  list.id = newToDo.id; // li에 id를 추가
   const span = document.createElement("span");
-  span.innerText = newToDo; // span의 text로 newToDo변수의 값을 넣음
+  span.innerText = newToDo.text; // span의 text로 newToDo변수의 text  값을 넣음
 
   const button = document.createElement("button");
   button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4" width="15" height="15">
@@ -39,8 +43,13 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const newToDo = toDoInput.value; // input의 현재 value를 newToDo변수에 복사
   toDoInput.value = "";
-  toDos.push(newToDo); // newToDo를 toDos배열에 추가하는데, 빈 배열에 추가하는 꼴
-  paintToDo(newToDo);
+  
+  const newToDoObj = {
+    text: newToDo,
+    id: Date.now(),
+  };
+  toDos.push(newToDoObj); // newToDo를 toDos배열에 추가하는데, 빈 배열에 추가하는 꼴
+  paintToDo(newToDoObj);
   saveToDos();
 }
 
