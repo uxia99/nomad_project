@@ -5,25 +5,20 @@
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
     const root = document.getElementById("root");
-    const h3 = React.createElement(
-      "h3",
-      {
-        id: "clicked",
-        style: { fontWeight: "bold" },
-        onMouseEnter: () => console.log("Mouse Enter"),
-      },
-      "Total Clicked : "
-    ); // React Js로 span 엘리먼트를 만든다
+    const Title = (
+      <h3 id="title" onMouseEnter={() => console.log("Mouse Enter")}>
+        Total Clicked :{" "}
+      </h3>
+    );
 
-    const btn = React.createElement(
-      "button",
-      { onClick: () => console.log("Clicked") },
-      "Click Me"
-    ); // React Js로 button 엘리먼트를 만든다
+    const Button = (
+      <button onClick={() => console.log("Clicked")}>Click Me</button>
+    );
 
-    const div = React.createElement("div", null, [h3, btn]); // React Js로 div 엘리먼트를 만들어 안에 span과 button을 넣는다
+    const div = React.createElement("div", null, [Title, Button]); // React Js로 div 엘리먼트를 만들어 안에 span과 button을 넣는다
 
     ReactDOM.render(div, root); // span 엘리먼트를 HTML root 엘리먼트에 렌더링한다
   </script>
