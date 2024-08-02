@@ -7,26 +7,30 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-
     const root = document.getElementById("root");
-    let counter = 0;
 
-    function countUp() {
-      counter = counter + 1;
-      reRender();
+    function Container() {
+      const [counter, modifier] = React.useState();
+      return (
+        <div>
+          <h3>Total Clicks : 0</h3>
+          <button>Click Me</button>
+        </div>
+      )
     }
+    
+    // 위 함수는 아래 함수와 같지만, 여기서 const data = React.useState();를 사용하면 에러가 발생
+    // 왜냐하면 useState는 컴포넌트 내부에서만 사용할 수 있기 때문으로, ()가 아닌 {}를 사용해야 함
+    // const Container = () => {
+    //   const data = React.useState();
+    //   return (
+    //     <div>
+    //       <h3>Total Clicks : 0</h3>
+    //       <button>Click Me</button>
+    //     </div>
+    //   );
+    // };
 
-    function reRender() {
-      ReactDOM.render(<Container />, root); // span 엘리먼트를 HTML root 엘리먼트에 렌더링한다
-    }
-
-    const Container = () => (
-      <div>
-        <h3>Total Clicks : {counter}</h3>
-        <button onClick={countUp}>Click Me</button>
-      </div>
-    );
-
-    reRender();
+    ReactDOM.render(<Container />, root);
   </script>
 </html>
