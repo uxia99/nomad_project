@@ -17,6 +17,7 @@ function onLoginSubmit(event) {
   loginForm.classList.add(HIDDEN_CLASSNAME);
   const username = loginInput.value;
   
+  loginForm.classList.add(HIDDEN_CLASSNAME); // 폼 숨기기
   localStorage.setItem(USERNAME_KEY, username); // 좌 : key, 우 : value
 
   paintGreetings(username);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    const root = document.getElementById("root");
+
+    // React.js useState 함수를 사용하면 변경되는 데이터만을 업데이트할 수 있다
+    function Container() {
+      // counter 데이터를 받으면, 이를 업데이트하는 함수 setCounter를 호출하고 reRender해준다
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total Clicks : {counter}</h3>
+          <button onClick={onClick}>Click Me</button>
+        </div>
+      )
+    }
+    
+    // 위 함수는 아래 함수와 같지만, 여기서 const data = React.useState();를 사용하면 에러가 발생
+    // 왜냐하면 useState는 컴포넌트 내부에서만 사용할 수 있기 때문으로, ()가 아닌 {}를 사용해야 함
+    // const Container = () => {
+    //   const data = React.useState();
+    //   return (
+    //     <div>
+    //       <h3>Total Clicks : 0</h3>
+    //       <button>Click Me</button>
+    //     </div>
+    //   );
+    // };
+
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>

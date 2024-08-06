@@ -9,28 +9,23 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    function Container() {
-      const [counter, modifier] = React.useState();
+    function addToDo() {
+      
+    }
+    function ToDo() {
+      const [counter, setCouner] = React.useState(0);
+      const onCheck = () => {
+        setCounter(selectedElements.length);
+      };
       return (
         <div>
-          <h3>Total Clicks : 0</h3>
-          <button>Click Me</button>
+          <h3>Todo List : {container}</h3>
+          <button onClick={addToDo}>Add</button>
+          <input type="checkbox" onClick={onCheck}></input>
         </div>
-      )
+      );
     }
-    
-    // 위 함수는 아래 함수와 같지만, 여기서 const data = React.useState();를 사용하면 에러가 발생
-    // 왜냐하면 useState는 컴포넌트 내부에서만 사용할 수 있기 때문으로, ()가 아닌 {}를 사용해야 함
-    // const Container = () => {
-    //   const data = React.useState();
-    //   return (
-    //     <div>
-    //       <h3>Total Clicks : 0</h3>
-    //       <button>Click Me</button>
-    //     </div>
-    //   );
-    // };
 
-    ReactDOM.render(<Container />, root);
+    ReactDOM.render(ToDo, root);
   </script>
 </html>

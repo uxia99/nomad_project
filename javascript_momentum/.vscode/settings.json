@@ -4,5 +4,6 @@
   ],
   "liveServer.settings.CustomBrowser": "chrome",
   "liveServer.settings.ChromeDebuggingAttachment": true,
-  "liveServer.settings.AdvanceCustomBrowserCmdLine": "/Applications/Arc.app/Contents/MacOS/Arc --incognito"
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": "/Applications/Arc.app/Contents/MacOS/Arc --incognito",
+  "liveServer.settings.port": 3001
 }
