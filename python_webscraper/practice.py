@@ -165,7 +165,91 @@ print(name.title())
 print(name.upper()) # 대문자로
 print(name.endswith("a")) # 해당 문자를 포함하는 지 True, False
 
+# List[]
+days_of_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
+days_of_week.append("Sun")
+print(days_of_week)
+
+days_of_week.remove("Mon")
+print(days_of_week)
+
+# Tuples()
+days_of_week = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+print(days_of_week[-1]) # Sun
+print(days_of_week[-2]) # Sat
+
+# Dictionary{} - 많은 속성을 가진 데이터를 만들 때 사용
+player = {
+    'name' : "Xia",
+    'age' : 25,
+    'alive' : True,
+    'fav_food' : ["🍝", "🍗"]
+}
+
+print(player.get('age'))
+
+
+# Loops
+websites = (
+    "google.com",
+    "facebook.com",
+    "https://instagram.com",
+    "youtube.com",
+    "https://github.com"
+)
+
+for website in websites:
+    if website.startswith("https://"):
+        print(website)
+    else:
+        website = f'https://{website}'
+        print(website)
+
+
+# Status Code
+from requests import get
+
+websites = (
+    "google.com",
+    "facebook.com",
+    "https://instagram.com",
+    "youtube.com",
+    "https://github.com"
+)
+
+results = {}
+
+for website in websites:
+    if not website.startswith("https://"):
+        website = f'https://{website}'
+
+    response = get(website)
+    if response.status_code == 200:
+        results[website] = "Success"
+    else:
+        results[website] = "Failed"
+
+print(results)
+
+
+# OOP
+""" # 이런 식의 코드를 아래와 같이 바꿔주는 게 객체지향프로그래밍
+xia = {
+    "name" : "Xia",
+    "age" : 25,
+    "team" : "1Z Lab's"
+}
+
+def introduce_player(player):
+    name = player["name"]
+    team = player["team"]
+
+    print(f"Hello, My name is {name}, and I'm play at {team}")
+
+introduce_player(xia)
+"""
 
 
 
