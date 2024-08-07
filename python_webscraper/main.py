@@ -1,13 +1,8 @@
-from random import randint
+days_of_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+print(days_of_week)
 
-user_choice = int(input("Choose number : "))
-pc_choice = randint(1,1000)
+name = "Xia"
 
-if user_choice == pc_choice:
-    print("Congratulations!")
-elif user_choice > pc_choice:
-    print("Lower")
-elif user_choice < pc_choice:
-    print("Higher")
-
-print(f'The answer is : {pc_choice}')
+print(name.title())
+print(name.upper())
+print(name.endswith("a")) # 해당 문자를 포함하는 지 True, False

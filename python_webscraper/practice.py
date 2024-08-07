@@ -66,7 +66,7 @@ perfect_juice = add_ice(sugar)
 
 print(perfect_juice)
 
-# 조건문
+
 # 조건문
 pw = input("Enter a password: ")
 
@@ -111,3 +111,62 @@ elif user_choice < pc_choice:
     print("Higher")
 
 print(f'The answer is : {pc_choice}')
+
+
+# 전체 주석처리 """
+"""
+def arrange_ex():
+    print("Can not Run")
+
+arrange_ex()
+"""
+
+# while - 조건문이 false가 될 때까지 반복 실행
+distance = 0
+
+while distance <= 20:
+    print(f'I running {distance}km')
+    distance += 1
+
+
+
+# Ex_Python_Casino
+from random import randint
+
+print("Welcomt to Python Casino")
+pc_choice = randint(1, 100)
+
+playing = True
+
+while playing:
+    user_choice = int(input("Choose your number 1~100 : "))
+
+    if user_choice == pc_choice:
+        print(f'You are Winner! Your choice is {user_choice} and answer is {pc_choice}')
+        playing = False
+    elif user_choice > pc_choice and user_choice < 100:
+        print("Lower")
+    elif user_choice < pc_choice and user_choice > 0:
+        print("Higher")
+    else:
+        print("You can choose the number between 1 and 100")
+
+
+
+# 배열[array]
+days_of_week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+print(days_of_week)
+
+
+# 메서드(method) : 데이터와 결합된 function
+name = "Xia"
+
+print(name.title())
+print(name.upper()) # 대문자로
+print(name.endswith("a")) # 해당 문자를 포함하는 지 True, False
+
+
+
+
+
+
