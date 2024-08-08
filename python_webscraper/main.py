@@ -1,42 +1,62 @@
-# OOP는 기능성과 행동들로 데이터와 속성(property)을 완전히 캡슐화할 수 있음
-
-class Human:
-    # 데이터 세팅
-    def __init__(self, name, age, team):
+class Player:
+    def __init__(self, name, team):
         self.name = name
-        self.age = age
+        self.xp = 1500
         self.team = team
 
-
-class Crazy_Staff(Human):
-    def __init__(self, name, team):
-        super().__init__(name, 27, team)
-
-    def rrrrr(self):
-        print("I'll kill you")
-
-
-class Staff(Human):
-    def __init__(self, name, team):
-        super().__init__(name, 25, team) # Super는 부모 Class 참조
-
-    def crazy(self):
-        print("aslejkhr234564709fkladshakjhsearfklnjasdh34598nlkciwhepf9uiksjdhn")
-
     def introduce(self):
-        print(f"My name is {self.name}, I'm {self.age} years old and I'm a team of {self.team}")
-        self.crazy()
+        print(f"Hi, I'm {self.name}, I'm play at {self.team}")
 
 
-# Class의 인스턴스(instance)
-xia = Staff(
+class Team:
+    def __init__(self, team_name):
+        self.team_name = team_name
+        self.players = []
+
+    def add_player(self, name):
+        new_player = Player(name, self.team_name)
+        self.players.append(new_player)
+
+    def show_players(self):
+        for player in self.players:
+            player.introduce()
+
+    def remove_player(self, name):
+        for player in self.players:
+            if player.name == name:
+                self.players.remove(player)
+                print(f"{player.name} is dead.. TT")
+
+    def total_xp(self):
+        total = 0
+        for player in self.players:
+            total += player.xp
+        print(f"{self.team_name} has {total} points")
+
+
+"""
+xia = Player(
     name="Xia",
-    age=25,
-    team="1Z Lab's")
-jh = Crazy_Staff(
-    name="Jaeheon",
-    age=27,
-    team="ROKA")
+    team="Solomon AI"
+)
 
-xia.introduce()
-jh.rrrrr()
+jh = Player(
+    name="Jaeheon",
+    team="ROKA"
+)
+"""
+
+solomon = Team("Solomon AI")
+solomon.add_player("Xia")
+solomon.add_player("Minsoo")
+
+roka = Team("Korea Army")
+roka.add_player("JaeHeon")
+roka.add_player("WooJin")
+roka.add_player("Rich")
+
+solomon.show_players()
+roka.show_players()
+roka.remove_player("Rich")
+solomon.total_xp()
+roka.total_xp()
