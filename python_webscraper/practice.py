@@ -275,3 +275,4 @@ jh = Staff(
 print(xia, jh)
 
 
+# Inheritance 상속
